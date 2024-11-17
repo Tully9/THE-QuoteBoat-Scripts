@@ -80,7 +80,7 @@ def scheduled_upload(lines, current_line_index, author, who_said_it):
     if current_line_index < len(lines):
         quote = lines[current_line_index].strip()  # Get the line and strip any extra whitespace
         print(f"Uploading quote: {quote}")  # Print the quote to be uploaded
-        upload_quote(driver, quote, context="", author=author, who_said_it=who_said_it)  # Upload the quote
+        upload_quote(driver, quote, context="Resurrection of the Messiah", author=author, who_said_it=who_said_it)  # Upload the quote
         print("Quote uploaded successfully!")
 
         # Update the current line index
@@ -99,7 +99,7 @@ def scheduled_upload(lines, current_line_index, author, who_said_it):
 # Main function
 def main():
     # Load the Bee Movie script
-    file_path = "C:\\Users\\Tom\\Documents\\vscode_playground\\QuoteBookBot\\SunTzuQuotes\\SunTzuQotes.txt"  # Replace with the correct path to your file
+    file_path = "C:\\Users\\Tom\\Documents\\vscode_playground\\SunTzuPrank\\SunTzuQuotes.txt"  # Replace with the correct path to your file
     lines = load_script(file_path)
 
     if not lines:

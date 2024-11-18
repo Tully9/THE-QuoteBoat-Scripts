@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ip_grabber(1)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Hi David, I found your information !</h1>
+        <p><strong>Hostname:</strong> {{ system_info.hostname }}</p>
+        <p><strong>Local IP Address:</strong> {{ system_info.ip_address }}</p>
+        <p><strong>Public IP Address:</strong> {{ system_info.public_ip }}</p>
+        <p><strong>MAC Address:</strong> {{ system_info.mac_address }}</p>
+        <p><strong>Operating System:</strong> {{ system_info.os_info }}</p>
+        <p><strong>Current Time:</strong> {{ system_info.current_time }}</p>
+        <p><strong>Browser/User Agent:</strong> {{ system_info.user_agent }}</p>
+        <h2 style="color: red; font-weight: bold;">Could I borrow it ?</h2>
+    </div>
+</body>
+</html>

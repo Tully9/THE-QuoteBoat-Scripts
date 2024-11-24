@@ -6,11 +6,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import random
 
-# Specify the path to ChromeDriver (make sure the path is correct)
-driver_path = "C:\\Program Files\\chromedriver\\chromedriver.exe"  # Update this to your chromedriver path
-service = Service(driver_path)  # Create a Service object with the driver path
+# Specify the path to ChromeDriver
+driver_path = "C:\\Program Files\\chromedriver\\chromedriver.exe"
+service = Service(driver_path)
 
-# Initialize the WebDriver with the service object
 driver = webdriver.Chrome(service=service)
 
 # Function to read the Bee Movie script from a text file
@@ -31,16 +30,15 @@ def upload_quote(driver, quote, context="Divine Intervention", author="The Voice
         driver.get("https://ise-quoteboat.vercel.app/")
         print("Navigated to the website.")
 
-        # Wait for the form fields to load
-        wait = WebDriverWait(driver, 10)  # Wait for up to 10 seconds
+        wait = WebDriverWait(driver, 10)  # Wait for 10 seconds
 
-        # Locate the fields and ensure they are visible
+        # Locate the fields
         quote_field = wait.until(EC.presence_of_element_located((By.ID, "quote")))
         context_field = wait.until(EC.presence_of_element_located((By.ID, "context")))
         author_field = wait.until(EC.presence_of_element_located((By.ID, "author")))
         who_said_it_field = wait.until(EC.presence_of_element_located((By.ID, "sayer")))
 
-        # Locate the submit button using a simpler, more reliable selector
+        # Locate the submit button
         submit_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[type='submit']")))
 
         print("Form fields located and ready to interact with.")
@@ -48,19 +46,19 @@ def upload_quote(driver, quote, context="Divine Intervention", author="The Voice
         # Fill in the fields with a small delay between each
         print(f"Filling in the quote: {quote}")
         quote_field.send_keys(quote)
-        time.sleep(1)  # Wait 1 second after inputting the quote
+        time.sleep(1) 
         
         print(f"Filling in the context: {context}")
         context_field.send_keys(context)
-        time.sleep(1)  # Wait 1 second after inputting the context
+        time.sleep(1) 
 
         print(f"Filling in the author: {author}")
         author_field.send_keys(author)
-        time.sleep(1)  # Wait 1 second after inputting the author
+        time.sleep(1)  
 
         print(f"Filling in 'Who said it': {who_said_it}")
         who_said_it_field.send_keys(who_said_it)
-        time.sleep(1)  # Wait 1 second after inputting the 'Who said it'
+        time.sleep(1) 
 
         # Submit the form
         print("Submitting the form...")
@@ -106,10 +104,10 @@ def main():
         print("No lines loaded from the script. Exiting.")
         return
 
-    # Set the fixed "author" as "The Voices From Above"
+    # Set the fixed "author"
     author = "The Messiah"
 
-    # Set the fixed "who_said_it" as "The voices from above"
+    # Set the fixed "who_said_it"
     who_said_it = "The Voices From Above"
 
     # Start the process by uploading the first quote
